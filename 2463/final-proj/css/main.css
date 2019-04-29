@@ -1,0 +1,62 @@
+/* Color vars for file.
+ * mn = main
+ * sc = secondary
+ * nt = neutral
+ */
+:root {
+  --background-color: #e3e4db;
+  --mn-color-1: #5f0f40;
+  --mn-color-2: #0f4c5c;
+  --sc-color-1: #aea4bf;
+  --nt-color-1: #cdcdcd;
+}
+
+body {
+  /* background-color: var(--background-color); */
+  padding: 0;
+  margin: 0;
+}
+
+canvas{
+  z-index: -1;
+}
+
+div{
+  height: 25%;
+  width: 50%;
+  z-index: 0;
+}
+
+h5{
+  color: var(--mn-color-1);
+}
+
+.btn {
+  background-color: var(--mn-color-2);
+  color: #FFF;
+  padding: 2% 7% 2% 7%;
+  height: 20%;
+  font-size: 1em;
+}
+
+.inpt {
+  height: 7%;
+  width: 40%;
+  height: 20%;
+}
+
+#status{
+  background-color: var(--mn-color-1);
+}
+
+#add{
+  background-color: var(--sc-color-1);
+}
+
+#commit{
+  background-color: var(--nt-color-1);
+}
+
+#push{
+  background-color: var(--mn-color-1);
+}

@@ -8,6 +8,7 @@ var SCORE = 0;
 var LEVEL = 1;
 var BULLET_COUNT = 0;
 var TIMER = 300;
+var SHOOT_TIMER = 0;
 var obstacle = [];
 var bullet = [];
 
@@ -77,11 +78,19 @@ function draw(){
       sprite.y = HEIGHT - 30;
     }
 
+    if(SHOOT_TIMER == 0){
+      outByte = 0;
+      serial.write(outByte);
+    }
+    else if(SHOOT_TIMER > 0){
+      SHOOT_TIMER--;
+    }
+
     if(obstacle.length == 0 || TIMER == 0){
       generateObstacles();
       TIMER = 300;
     }
-    LEVEL = Math.floor(SCORE/10) + 1;
+    LEVEL = Math.floor(SCORE/5) + 1;
 
 
     text("Level: " + LEVEL, 20, 20);
@@ -113,12 +122,6 @@ function draw(){
   }
 }
 
-function keyReleased(){
-  if(keyCode == 32){
-    shoot();
-  }
-}
-
 function shoot(){
   if(!sprite.isDead()){
     bullet[bullet.length] = new Bullet(sprite.x + 30, sprite.y);
@@ -144,6 +147,8 @@ function checkBulletCollision(){
               bullet.splice(j, 1);
               obstacle.splice(i, 1);
               sndHit.start();
+              outByte = 1;
+              serial.write(outByte);
               SCORE++;
           }
         }
@@ -213,6 +218,7 @@ function serialEvent() {
   if(serialInput == 0){
     if(inData !=255){
       shoot();
+      SHOOT_TIMER = 75;
     }
   }
   else{

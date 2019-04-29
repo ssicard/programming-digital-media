@@ -1,0 +1,8 @@
+Both players begin with their lights on. The goal is to "shoot", or press the
+button, while the other person's light is on. If the other person is
+successfully shot, meaning their light was on while the competing player clicked
+their button, the competing player's led will flash five times to declare them
+winner. If there are 3 misses, the player's gun is empty and the competitior
+wins and thier LED will flash. 
+
+Upon win, the winning player's LED will blink 5 times to represent the win. 

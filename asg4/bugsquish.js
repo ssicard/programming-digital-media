@@ -1,9 +1,3 @@
-/*    TODO
-- dragging squishes on release
-*/
-
-
-
 // bug vars
 var bug = [];
 var COUNT = 3;
@@ -13,6 +7,8 @@ var DEATH_COUNT = 0;
 var cur_deaths = 0; //current clicks in game round
 
 // env vars
+var WIDTH = 480;
+var HEIGHT = 480;
 var BOUNDARY_X = 620;
 var BOUNDARY_Y = 460;
 var TIMER = 30;
@@ -65,11 +61,12 @@ function draw() {
 			//text
 			text("TIMER: " + TIMER, 20, 20);
 			text("BUGS SQUISHED: " + DEATH_COUNT, 20, 50);
+      text("Click on the bugs to squish!", )
 
 			//check if cursor is on the bug
 			for(var i = 0; i < COUNT; i++){
 				if (mouseX > bug[i].x - 20 && mouseX < bug[i].x + 20 && mouseY > bug[i].y - 20 && mouseY < bug[i].y + 20) {
-		    		bug[i].onBug = true;  
+		    		bug[i].onBug = true;
 			  	}
 			  	else{
 			  		bug[i].onBug = false;
@@ -90,7 +87,7 @@ function draw() {
 		textSize(40);
 		text("BUGS SQUISHED: " + DEATH_COUNT, 120, 300);
 	}
-	
+
 }
 
 function mousePressed(){
@@ -179,7 +176,7 @@ function Bug(x, y, speedModifier, direction){
     			image(this.spriteSheet, 0, 0, 80, 80, 520, 380, bugWidth,bugHeight);
     		}
     	}
-		
+
     	pop();
 	}
 
